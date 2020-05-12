@@ -1,0 +1,25 @@
+<p-table #turboTable [value]="cars" [rows]="paging" [paginator]="true" paginatorPosition="both">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Vin</th>
+      <th>Year</th>
+      <th>Brand</th>
+      <th>Color</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="paginatorleft" let-state>
+    <div class="grid-pagination">
+      {{ state.first + 1 }} -
+      {{ (state.first + state.rows) <= state.totalRecords ? (state.first + state.rows) : (state.totalRecords) }}
+      ({{ state.totalRecords }})
+    </div>
+  </ng-template>
+  <ng-template pTemplate="body" let-car>
+    <tr>
+      <td>{{car.vin}}</td>
+      <td>{{car.year}}</td>
+      <td>{{car.brand}}</td>
+      <td>{{car.color}}</td>
+    </tr>
+  </ng-template>
+</p-table>
