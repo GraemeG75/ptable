@@ -25,6 +25,6 @@ export class Test1Component implements OnInit {
       }
       // uncomment this line to get the 
       // this.turboTable._totalRecords = 105;
-    }, 5000);
+    }, 1000);
   }
 }
