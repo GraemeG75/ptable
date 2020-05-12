@@ -23,7 +23,8 @@ export class Test1Component implements OnInit {
       for (let x = 0; x < 100; x++){
         this.cars.push(this.carService.getCars()[x]);
       }
-      //this.turboTable._totalRecords = 105;
+      // uncomment this line to get the 
+      // this.turboTable._totalRecords = 105;
     }, 5000);
   }
 }
