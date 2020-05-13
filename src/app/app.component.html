@@ -1,6 +1,12 @@
 <div>
-<h1>Test 1</h1>
-<div>
-<app-test1></app-test1>
-</div>
+  <h1>p-table loading issue</h1>
+  <div>
+    <small>this table will not display correctly</small>
+    <app-test1></app-test1>
+  </div>
+  <br />
+  <div>
+    <small>this table will display correctly</small>
+    <app-test1 [setTotalRecords]="true"></app-test1>
+  </div>  
 </div>

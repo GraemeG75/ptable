@@ -1,4 +1,4 @@
-import { Component, OnInit, SimpleChanges, OnChanges, ViewChild } from '@angular/core';
+import { Component, OnInit, SimpleChanges, OnChanges, ViewChild, AfterViewInit , Input } from '@angular/core';
 import { CarService, Car } from '../car.service';
 
 @Component({
@@ -8,6 +8,7 @@ import { CarService, Car } from '../car.service';
 })
 export class Test1Component implements OnInit {
   @ViewChild('turboTable', { static: false }) turboTable: any;
+  @Input() setTotalRecords: boolean;
   cars: Car[];
   paging: number;
   constructor(private carService: CarService) { }
@@ -15,7 +16,7 @@ export class Test1Component implements OnInit {
   ngOnInit(): void {
 
     const c = this.carService.getCars();
-    this.paging = 50;
+    this.paging = 10;
     const c2: Car[] = c;
     this.cars = c2.slice(0, 5);
 
@@ -23,8 +24,9 @@ export class Test1Component implements OnInit {
       for (let x = 0; x < 100; x++){
         this.cars.push(this.carService.getCars()[x]);
       }
-      // uncomment this line to get the 
-      // this.turboTable._totalRecords = 105;
+      if (this.setTotalRecords) {
+        this.turboTable._totalRecords = this.cars.length;
+      }
     }, 1000);
   }
 }
